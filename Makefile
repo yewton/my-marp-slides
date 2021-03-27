@@ -7,7 +7,7 @@ PDF := $(SRC:%/PITCHME.md=pdfs/%.pdf)
 
 all: node_modules $(INDEX) $(PDF)
 
-node_modules: package-lock.json
+node_modules: package.json
 	npm i
 
 $(INDEX): $(HTML)
