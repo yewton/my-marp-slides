@@ -1,4 +1,3 @@
-LOCK := package-lock.json
 SRC := $(wildcard */PITCHME.md)
 INDEX := docs/index.html
 HTML := $(SRC:%.md=docs/%.html)
@@ -6,10 +5,10 @@ PDF := $(SRC:%/PITCHME.md=pdfs/%.pdf)
 
 .PHONY: all clean
 
-all: $(LOCK) $(INDEX) $(PDF)
+all: node_modules $(INDEX) $(PDF)
 
-$(LOCK): package.json
-	npm i && touch $(LOCK) # 実際に更新があろうと無かろうと次回のターゲットにしない為 touch する
+node_modules: package-lock.json
+	npm i
 
 $(INDEX): $(HTML)
 	npx indexifier --exclude '(assets)' --no-link-folders --html $(@D) > $@
@@ -23,4 +22,4 @@ pdfs/%.pdf: %/PITCHME.md
 	npx marp --pdf --allow-local-files $< -o $@
 
 clean:
-	rm -fr docs pdfs
+	rm -fr node_modules docs pdfs
