@@ -1,0 +1,15 @@
+#+begin_export markdown
+---
+theme: gaia
+paginate: true
+_paginate: false
+class: lead
+---
+<style>
+section {
+  background: white;
+}
+</style>
+
+<!-- headingDivider: 1 -->
+#+end_export

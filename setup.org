@@ -1,0 +1,14 @@
+#+startup: showall
+#+options: toc:nil tags:nil
+#+property: dir assets/
+#+property: header-args:plantuml :cache yes :dir assets
+#+macro: fit @@html:<!--fit-->@@
+#+macro: np @@html:---@@
+#+macro: noclass @@html:<!-- _class: -->@@
+#+macro: img @@html:![$1](assets/$2)@@
+#+macro: fl @@html:*@@
+
+#+name: setup
+#+begin_src emacs-lisp :results silent
+(add-hook 'after-save-hook #'org-md-export-to-markdown :append :local)
+#+end_src

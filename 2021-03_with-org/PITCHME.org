@@ -1,0 +1,72 @@
+#+setupfile: ../setup.org
+#+include: ../theme-gaia.org
+
+* COMMENT 編集用便利機能
+
+↓で =C-c C-c= をすると、保存する度に export されるようになる:
+#+call: ../setup.org:setup()
+
+* {{{fit}}}org-mode でスライド書きたい
+
+yewton
+
+* [[https://plantuml.com/][PlantUML]] を埋め込めるのがデカい
+
+普通に書くと、 =![img]()= になるので、 [[https://marpit.marp.app/image-syntax][Marp の機能]] は使えない。
+そのまま表示するだけで事足りる場合はこれでも良い。
+
+#+begin_src plantuml :file sequence.png
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: another authentication Response
+@enduml
+#+end_src
+
+#+RESULTS[ce8b0aee482769b0c77240f934c624b37713c016]:
+[[file:assets/sequence.png]]
+
+* Marp の機能を使いたい場合
+
+{{{noclass}}}
+
+明示的に =eval= してファイル生成だけはしておいて、 =:exports none= にしてエクスポート対象外にする。
+
+その上で、 =@@html:![bg contains]()@@= のように参照する。
+
+#+begin_src plantuml :file class.png :exports none
+@startuml
+hide empty members
+
+class Car
+
+Driver - Car : drives >
+Car *- Wheel : have 4 >
+Car -- Person : < owns
+@enduml
+#+end_src
+
+#+RESULTS[ce149ff68ae2d081cd8e7997fe85e85e2adfc9c4]:
+[[file:assets/class.png]]
+
+{{{img(bg right:33% contain,class.png)}}}
+
+* org-download との相性も良い                                        :ATTACH:
+
+#+ATTR_ORG: :width 500
+[[file:assets/2021-03-29_00-00-45_screenshot.png]]
+
+Photo by [[https://www.pexels.com/@kaboompics?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels][Kaboompics .com]] from [[https://www.pexels.com/photo/geometric-decoration-5836/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels][Pexels]]
+
+* Marp の機能を使いたい場合
+
+{{{noclass}}}
+
+{{{fl}}} PlantUML の場合と同様、 org-mode で画像ファイルリンクを設定すると =![img]()= で固定される
+{{{fl}}} =@@html:![bg contain]()@@= のようにインラインHTMLで何とかする
+
+{{{img(bg contain opacity blur,2021-03-29_00-00-45_screenshot.png)}}}
+
+* {{{fit}}}終わり
