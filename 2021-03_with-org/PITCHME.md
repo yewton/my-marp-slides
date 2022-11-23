@@ -2,15 +2,32 @@
 theme: gaia
 paginate: true
 _paginate: false
+headingDivider: 1
 class: lead
 ---
 <style>
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;700&display=swap');
+section {
+    font-family: 'M PLUS 1p', sans-serif;
+    color: #595959;
+}
+@font-face
+{
+  font-family: しねきゃぷしょん;
+  src: url('https://cdn.leafscape.be/cinecaption/cinecaption227.woff2')
+       format("woff2");
+}
 section {
   background: white;
 }
-</style>
 
-<!-- headingDivider: 1 -->
+section.cinecaption {
+  font-family: しねきゃぷしょん;
+  background: black;
+  color: white;
+}
+
+</style>
 
 
 # <!--fit-->org-mode でスライド書きたい
@@ -32,7 +49,7 @@ yewton
 
 明示的に `eval` してファイル生成だけはしておいて、 `:exports none` にしてエクスポート対象外にする。
 
-その上で、 `@@html:![bg contains]()@@` のように参照する。
+その上で、 `@@html:![bg contains]()@@` のように参照する( 入力簡易化の為[マクロ](https://orgmode.org/manual/Macro-Replacement.html)を定義すると吉 )。
 
 ![bg right:33% contain](assets/class.png)
 
@@ -55,4 +72,3 @@ Photo by [Kaboompics .com](https://www.pexels.com/@kaboompics?utm_content=attrib
 
 
 # <!--fit-->終わり
-

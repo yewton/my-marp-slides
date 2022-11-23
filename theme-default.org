@@ -1,0 +1,22 @@
+#+begin_export markdown
+---
+theme: default
+paginate: true
+_paginate: false
+---
+<!-- headingDivider: 1 -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;700&display=swap');
+section {
+    font-family: 'M PLUS 1p', sans-serif;
+    color: #595959;
+}
+section strong {
+    color: #292929;
+}
+img[alt~="center"] {
+  display: block;
+  margin: 0 auto;
+}
+</style>
+#+end_export

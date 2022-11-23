@@ -34,7 +34,7 @@ Alice <-- Bob: another authentication Response
 
 明示的に =eval= してファイル生成だけはしておいて、 =:exports none= にしてエクスポート対象外にする。
 
-その上で、 =@@html:![bg contains]()@@= のように参照する。
+その上で、 =@@html:![bg contains]()@@= のように参照する( 入力簡易化の為[[https://orgmode.org/manual/Macro-Replacement.html][マクロ]]を定義すると吉 )。
 
 #+begin_src plantuml :file class.png :exports none
 @startuml

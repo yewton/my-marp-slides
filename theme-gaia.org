@@ -3,13 +3,30 @@
 theme: gaia
 paginate: true
 _paginate: false
+headingDivider: 1
 class: lead
 ---
 <style>
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;700&display=swap');
+section {
+    font-family: 'M PLUS 1p', sans-serif;
+    color: #595959;
+}
+@font-face
+{
+  font-family: しねきゃぷしょん;
+  src: url('https://cdn.leafscape.be/cinecaption/cinecaption227.woff2')
+       format("woff2");
+}
 section {
   background: white;
 }
-</style>
 
-<!-- headingDivider: 1 -->
+section.cinecaption {
+  font-family: しねきゃぷしょん;
+  background: black;
+  color: white;
+}
+
+</style>
 #+end_export

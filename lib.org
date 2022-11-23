@@ -1,0 +1,34 @@
+* アジェンダ出力
+:PROPERTIES:
+:CREATED:  [2021-09-07 火 22:22]
+:END:
+
+=agenda-items= という name でリストを宣言すると、
+その内容を再利用しつつ、強調表示も出来る関数。
+
+#+begin_src org
+,#+name: agenda-items
+1. hoge
+2. fuga
+3. piyo
+#+end_src
+
+こう宣言しておいて以下のようにすると、 1 番目の項目が強調表示された状態で表示出来る。
+
+#+begin_src org
+,#+call: ../lib.org:agenda(1)
+#+end_src
+
+#+name: agenda
+#+begin_src emacs-lisp :results value raw :var current=0 items=agenda-items :exports none
+(let ((current (or (and (boundp 'current) current) 0))
+      (items (or (and (boundp 'items) items) '(("foo") ("bar"))))
+      (lines nil))
+  (dotimes (i (length items))
+    (let ((index (+ 1 i))
+          (item (car (nth i items))))
+      (add-to-list 'lines
+                   (format "%i. %s" index
+                           (if (eq current index) (format "*%s*" item) item)))))
+  (string-join (reverse lines) "\n"))
+#+end_src
