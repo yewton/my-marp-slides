@@ -5,7 +5,7 @@
   "author": "yewton <yewton@gmail.com>",
   "license": "WTFPL",
   "devDependencies": {
-    "@marp-team/marp-cli": "^2.5.0",
+    "@marp-team/marp-cli": "^4.2.3",
     "indexifier": "^3.2.2"
   }
 }
